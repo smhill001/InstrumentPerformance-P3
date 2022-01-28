@@ -1,3 +1,0 @@
-MeasTarget,DataType,DataTarget,DateUT,Optics,Camera,Grating,FileList
-Aldebaran,Stars,Aldebaran,20130117,135mm,ST2000,100lpm,Aldebaran_450BLU_Obs.txt,
-Rigel,Stars,Rigel,20130117,135mm,ST2000,100lpm,Rigel_450BLU_Obs.txt,

@@ -2,19 +2,7 @@
 """
 Created on Thu Mar 18 12:38:27 2021
 
-This code creates two plots, each with two subplots
-    Plot 1:     Presents information on Jupiter reflectance and filters
-        Subplot 1:  Karkoschka, 1994 disk-integrated albedo plus a spline fit that removes
-                    the NH3 absorption
-        Subplot 2:  Filter transmissions computed (647, 656, 658, 672) and convovled
-                    with reference albedo (and spline fit for 647)
-
-    Plot 2:     Presents information on potential color biases due to differences in 
-                regional/feature albedos on Jupiter and Galilean moon colors
-        Subplot 1:  Plots regional reflectivities (I/F) for NEB, EZ, and SEB from Dahl, 2021
-        Subplot 2:  Plots Galilean moon reflectivites from Clark & McCord, 1980
-
-UPDATE 2022-01-25:  Converted the code to Python 3 on the new Astronomy laptop
+This code creates ....
 
 @author: Steven Hill
 """
@@ -146,7 +134,7 @@ pl.plot(Transmission632[:,0],Transmission632[:,1],linewidth=1,color='C4',label='
 pl.legend(fontsize=7)
 
 
-pl.savefig('c:/Astronomy/Projects/SAS 2021 Ammonia/Jupiter_NH3_Analysis_P3/AmmoniaFilter.png',dpi=320)
+pl.savefig('c:/Astronomy/Projects/SAS 2021 Ammonia/Jupiter_NH3_Analysis_P3/NarrowBand_Jupiter_Filter_Transmissions.png',dpi=320)
 
 path='c:/Astronomy/Projects/Techniques/InstrumentPerformance-P3/Filters/'
 

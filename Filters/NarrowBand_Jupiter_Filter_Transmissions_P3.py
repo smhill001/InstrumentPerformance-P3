@@ -62,9 +62,6 @@ Filter940 = np.fromfile(file=FilterFile, dtype=float, count=-1, sep='\t')
 Filter940=np.reshape(Filter940,[int(Filter940.size/2),2])
 Transmission940=GSU.SpectrumMath(Filter940,FilterNIR,"Divide")
 
-
-
-
 ##########
 
 FilterFile="c:/Astronomy/Projects/Planets/Mars/Spectral Data/1D Spectra/Mars20201122014325_1D_WVCal.txt"
@@ -95,7 +92,18 @@ FilterOPNV=np.reshape(FilterOPNV,[int(FilterOPNV.size/2),2])
 FilterFile="c:/Astronomy/Projects/Stars/Vega/Spectral Data/1D Spectra/Vega20210727051317_1D_WVCal.txt"
 Filter632 = np.fromfile(file=FilterFile, dtype=float, count=-1, sep='\t')    
 Filter632=np.reshape(Filter632,[int(Filter632.size/2),2])
-Transmission632=GSU.SpectrumMath(Filter632,FilterOPNC,"Divide")
+Transmission632=GSU.SpectrumMath(Filter632,FilterOPNV,"Divide")
+
+##########
+
+FilterFile="c:/Astronomy/Projects/Stars/Arcturus/Spectral Data/1D Spectra/Arcturus20220616044551_1D_WVCal.txt"
+FilterOPNA = np.fromfile(file=FilterFile, dtype=float, count=-1, sep='\t')    
+FilterOPNA=np.reshape(FilterOPNA,[int(FilterOPNA.size/2),2])
+
+FilterFile="c:/Astronomy/Projects/Stars/Arcturus/Spectral Data/1D Spectra/Arcturus20220616044409_1D_WVCal.txt"
+Filter620 = np.fromfile(file=FilterFile, dtype=float, count=-1, sep='\t')    
+Filter620=np.reshape(Filter620,[int(Filter620.size/2),2])
+Transmission620=GSU.SpectrumMath(Filter620,FilterOPNA,"Divide")
 
 ##########
 
@@ -130,6 +138,7 @@ pl.plot(Transmission658[:,0],Transmission658[:,1],linewidth=1,color='C1',label='
 pl.plot(Transmission656[:,0],Transmission656[:,1],linewidth=1,color='C2',label='656HIA')
 pl.plot(Transmission647[:,0],Transmission647[:,1],linewidth=1,color='C3',label='647CNT')
 pl.plot(Transmission632[:,0],Transmission632[:,1],linewidth=1,color='C4',label='632OI')
+pl.plot(Transmission620[:,0],Transmission620[:,1],linewidth=1,color='C8',label='620CH4')
 
 pl.legend(fontsize=7)
 
@@ -138,6 +147,8 @@ pl.savefig('c:/Astronomy/Projects/SAS 2021 Ammonia/Jupiter_NH3_Analysis_P3/Narro
 
 path='c:/Astronomy/Projects/Techniques/InstrumentPerformance-P3/Filters/'
 
+np.savetxt(path+'620CH4/620CH4_Transmission.txt',Transmission620,delimiter=" ",
+           fmt="%10.3F %10.7F")
 np.savetxt(path+'632OI/632OI_Transmission.txt',Transmission632,delimiter=" ",
            fmt="%10.3F %10.7F")
 np.savetxt(path+'647CNT/647CNT_Transmission.txt',Transmission647,delimiter=" ",

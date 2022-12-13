@@ -106,7 +106,7 @@ Filter620=np.reshape(Filter620,[int(Filter620.size/2),2])
 Transmission620=GSU.SpectrumMath(Filter620,FilterOPNA,"Divide")
 
 ##########
-
+zeros=np.zeros(Transmission620.shape[0])
 
 ###### Plot filter transmissions convolved with disk-integrated albedos
 pl.figure(figsize=(6.5, 4.0), dpi=150, facecolor="white")
@@ -128,19 +128,30 @@ pl.yticks(np.linspace(y0,y1,ytks, endpoint=True))
 # Set y ticks
 pl.grid(linewidth=0.2)
 pl.tick_params(axis='both', which='major', labelsize=8)
-pl.ylabel("Albedo x Transmission",fontsize=8,color="black")
-pl.xlabel("Wavelength (nm)",fontsize=8)
+pl.title("Narrow Band Filters for Ammonia Investigation",fontsize=12)
+pl.ylabel("Filter Transmission",fontsize=10,color="black")
+pl.xlabel("Wavelength (nm)",fontsize=10)
 pl.plot(Transmission940[:,0],Transmission940[:,1],linewidth=1,color='C7',label='940NIR')
+pl.fill_between(Transmission940[:,0], zeros, Transmission940[:,1],color='C0',alpha=.2,label='Continuum')
 pl.plot(Transmission889[:,0],Transmission889[:,1],linewidth=1,color='C6',label='889CH4')
-pl.plot(Transmission730[:,0],Transmission730[:,1],linewidth=1,color='C5',label='730OII')
+pl.fill_between(Transmission889[:,0], zeros, Transmission889[:,1],color='C8',alpha=.2,label='Methane')
+pl.plot(Transmission730[:,0],Transmission730[:,1],linewidth=1,color='C5',label='730CH4')
+pl.fill_between(Transmission730[:,0], zeros, Transmission730[:,1],color='C8',alpha=.2)
 pl.plot(Transmission672[:,0],Transmission672[:,1],linewidth=1,color='C0',label='672SII')
-pl.plot(Transmission658[:,0],Transmission658[:,1],linewidth=1,color='C1',label='658NII')
+pl.fill_between(Transmission672[:,0], zeros, Transmission672[:,1],color='C0',alpha=.2)
+#pl.plot(Transmission658[:,0],Transmission658[:,1],linewidth=1,color='C1',label='658NII')
+#pl.fill_between(Transmission658[:,0], zeros, Transmission658[:,1],color='C0',alpha=.2)
 pl.plot(Transmission656[:,0],Transmission656[:,1],linewidth=1,color='C2',label='656HIA')
-pl.plot(Transmission647[:,0],Transmission647[:,1],linewidth=1,color='C3',label='647CNT')
+pl.fill_between(Transmission656[:,0], zeros, Transmission656[:,1],color='C0',alpha=.2)
+pl.plot(Transmission647[:,0],Transmission647[:,1],linewidth=1,color='C3',label='647NH3')
+pl.fill_between(Transmission647[:,0], zeros, Transmission647[:,1],color='C3',alpha=.2,label='Ammonia')
 pl.plot(Transmission632[:,0],Transmission632[:,1],linewidth=1,color='C4',label='632OI')
+pl.fill_between(Transmission632[:,0], zeros, Transmission632[:,1],color='C0',alpha=.2)
 pl.plot(Transmission620[:,0],Transmission620[:,1],linewidth=1,color='C8',label='620CH4')
+pl.fill_between(Transmission620[:,0], zeros, Transmission620[:,1],color='C8',alpha=.2)
 
 pl.legend(fontsize=7)
+pl.subplots_adjust(left=0.09, bottom=0.12, right=0.97, top=0.92)  
 
 
 pl.savefig('c:/Astronomy/Projects/SAS 2021 Ammonia/Jupiter_NH3_Analysis_P3/NarrowBand_Jupiter_Filter_Transmissions.png',dpi=320)
